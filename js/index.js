@@ -47,6 +47,14 @@ function exitScreen(index, exitDelay) {
 
   setTimeout(() => {
     grid.classList.remove('active');
+
+    heading.classList.add('animate-before');
+    heading.classList.remove('animate-after');
+
+    gridColumns.forEach(element => {
+      element.classList.add('animate-before');
+      element.classList.remove('animate-after');
+    });
   }, exitDelay);
 }
 
@@ -63,8 +71,6 @@ function setupAnimationCycle({ timePerScreen, exitDelay }) {
 
     nextIndex = nextIndex >= grids.length - 1 ? 0 : nextIndex + 1;
   }
-
-  nextCycle();
 
   setInterval(nextCycle, cycleTime);
 }
