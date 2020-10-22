@@ -72,7 +72,10 @@ function setupAnimationCycle({ timePerScreen, exitDelay }) {
     nextIndex = nextIndex >= grids.length - 1 ? 0 : nextIndex + 1;
   }
 
-  setInterval(nextCycle, cycleTime);
+  setTimeout(() => {
+    nextCycle();
+    setInterval(nextCycle, cycleTime);
+  }, 500);
 }
 
 setupAnimationCycle({
