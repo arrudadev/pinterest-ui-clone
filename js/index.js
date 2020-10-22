@@ -82,3 +82,46 @@ setupAnimationCycle({
   timePerScreen: 3000, // ms
   exitDelay: 300 * 7, // ms
 });
+
+function detectMouseWheelDirection(event) {
+  let delta = null;
+  let direction = false;
+
+  if (!event) {
+    event = window.event;
+  }
+
+  if (event.wheelDelta) {
+    delta = event.wheelDelta / 60;
+  } else if (event.detail) {
+    delta = -event.detail / 2;
+  }
+
+  if (delta !== null) {
+    direction = delta > 0 ? 'up' : 'down';
+  }
+
+  return direction;
+}
+
+let transformYActive = false;
+
+function moveTransform(direction) {
+  if (direction === 'up' && transformYActive) {
+    transformYActive = false;
+    document
+      .getElementsByTagName('body')[0]
+      .classList.remove('transform-body-bottom');
+  } else if (direction === 'down' && !transformYActive) {
+    transformYActive = true;
+    document
+      .getElementsByTagName('body')[0]
+      .classList.add('transform-body-bottom');
+  }
+}
+
+// eslint-disable-next-line
+function mouseWheelEvent(event) {
+  const direction = detectMouseWheelDirection(event);
+  moveTransform(direction);
+}

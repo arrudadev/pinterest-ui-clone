@@ -14,5 +14,6 @@ module.exports = {
     'comma-spacing': 2,
     'no-multiple-empty-lines': [2, { max: 1 }],
     'no-trailing-spaces': 2,
+    'no-param-reassign': 'off'
   },
 };
