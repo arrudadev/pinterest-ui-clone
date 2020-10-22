@@ -1,9 +1,18 @@
 const grids = document.querySelectorAll('.grid');
 const headings = document.querySelectorAll('.heading .wrapper .text');
+const dots = document.querySelectorAll('.heading .wrapper .dots ul li .dot');
+
+const dotsColorsClasses = [
+  'dot-blue',
+  'dot-green-light',
+  'dot-yellow',
+  'dot-green-dark',
+];
 
 function enterScreen(index) {
   const grid = grids[index];
   const heading = headings[index];
+  const dot = dots[index];
   const gridColumns = grid.querySelectorAll('.column');
 
   grid.classList.add('active');
@@ -13,11 +22,14 @@ function enterScreen(index) {
   });
 
   heading.classList.remove('animate-before', 'animate-after');
+
+  dot.classList.add(dotsColorsClasses[index]);
 }
 
 function exitScreen(index, exitDelay) {
   const grid = grids[index];
   const heading = headings[index];
+  const dot = dots[index];
   const gridColumns = grid.querySelectorAll('.column');
 
   gridColumns.forEach(element => {
@@ -25,6 +37,13 @@ function exitScreen(index, exitDelay) {
   });
 
   heading.classList.add('animate-after');
+
+  dot.classList.remove(
+    'dot-blue',
+    'dot-green-light',
+    'dot-yellow',
+    'dot-green-dark',
+  );
 
   setTimeout(() => {
     grid.classList.remove('active');
