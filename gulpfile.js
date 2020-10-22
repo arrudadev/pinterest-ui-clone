@@ -24,6 +24,8 @@ gulp.task('concat-sass', function () {
       'scss/variables.scss',
       'scss/animations.scss',
       'scss/header.scss',
+      'scss/heading.scss',
+      'scss/grid.scss',
     ], { base: __dirname }))
     .pipe(concat(sassBundleFileName))
     .pipe(gulp.dest(sassFolderPath));

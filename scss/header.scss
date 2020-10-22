@@ -7,8 +7,20 @@ header {
   
   h3 {
     color: $red;
+
     font-size: 20px;
     font-weight: 700;
+
+    display: flex;
+    align-items: center;
+
+    svg {
+      margin-right: 5px;
+
+      path {
+        fill: $red;
+      }      
+    }
   }
 
   nav {
