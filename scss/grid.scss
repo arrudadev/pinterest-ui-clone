@@ -72,6 +72,13 @@
   background: $red;
 
   border-radius: 10px;
+
+  img {
+    width: 236px;
+    height: 350px;
+    
+    border-radius: 10px;
+  }
 }
 
 .item:not(:first-child) {
