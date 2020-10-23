@@ -1,12 +1,26 @@
 const grids = document.querySelectorAll('.grid');
 const headings = document.querySelectorAll('.heading .wrapper .text');
 const dots = document.querySelectorAll('.heading .wrapper .dots ul li .dot');
+const arrowScrollDowns = document.querySelectorAll(
+  '.page-scroll-arrow-bottom .arrow-button',
+);
+
+const pageScrollArrowDown = document.querySelector('.page-scroll-arrow-bottom');
+
+const arrowScrollDown = arrowScrollDowns[0];
 
 const dotsColorsClasses = [
   'dot-blue',
   'dot-green-light',
   'dot-yellow',
   'dot-green-dark',
+];
+
+const arrowScrollDownColorsClasses = [
+  'arrow-scroll-down-blue',
+  'arrow-scroll-down-green-light',
+  'arrow-scroll-down-yellow',
+  'arrow-scroll-down-green-dark',
 ];
 
 function enterScreen(index) {
@@ -24,6 +38,14 @@ function enterScreen(index) {
   heading.classList.remove('animate-before', 'animate-after');
 
   dot.classList.add(dotsColorsClasses[index]);
+
+  arrowScrollDown.classList.remove(
+    'arrow-scroll-down-blue',
+    'arrow-scroll-down-green-light',
+    'arrow-scroll-down-yellow',
+    'arrow-scroll-down-green-dark',
+  );
+  arrowScrollDown.classList.add(arrowScrollDownColorsClasses[index]);
 }
 
 function exitScreen(index, exitDelay) {
@@ -112,11 +134,15 @@ function moveTransform(direction) {
     document
       .getElementsByTagName('body')[0]
       .classList.remove('transform-body-bottom');
+
+    pageScrollArrowDown.style.display = 'flex';
   } else if (direction === 'down' && !transformYActive) {
     transformYActive = true;
     document
       .getElementsByTagName('body')[0]
       .classList.add('transform-body-bottom');
+
+    pageScrollArrowDown.style.display = 'none';
   }
 }
 
