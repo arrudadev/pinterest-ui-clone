@@ -28,6 +28,8 @@ header {
     align-items: center;
     
     ul {
+      display: block;
+
       li {
         padding: 16px;
         
@@ -43,6 +45,10 @@ header {
             text-decoration: underline;
           }
         }
+      }
+
+      @media (max-width: 650px) {
+        display: none;
       }
     }
 
@@ -76,6 +82,18 @@ header {
         margin-left: 16px;
         
         background: $gray-light;
+      }
+
+      @media (max-width: 400px) {
+        display: none;
+      }
+    }
+
+    .burger-menu {
+      display: none;
+
+      @media (max-width: 400px) {
+        display: block;
       }
     }
   }
