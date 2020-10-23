@@ -6,6 +6,7 @@ const arrowScrollDowns = document.querySelectorAll(
 );
 
 const pageScrollArrowDown = document.querySelector('.page-scroll-arrow-bottom');
+const modalOverlaySignUp = document.querySelector('.modal-overlay');
 
 const arrowScrollDown = arrowScrollDowns[0];
 
@@ -136,6 +137,7 @@ function moveTransform(direction) {
       .classList.remove('transform-body-bottom');
 
     pageScrollArrowDown.style.display = 'flex';
+    modalOverlaySignUp.style.display = 'none';
   } else if (direction === 'down' && !transformYActive) {
     transformYActive = true;
     document
@@ -143,6 +145,10 @@ function moveTransform(direction) {
       .classList.add('transform-body-bottom');
 
     pageScrollArrowDown.style.display = 'none';
+
+    setTimeout(() => {
+      modalOverlaySignUp.style.display = 'block';
+    }, 1100);
   }
 }
 
