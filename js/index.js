@@ -7,6 +7,7 @@ const arrowScrollDowns = document.querySelectorAll(
 
 const pageScrollArrowDown = document.querySelector('.page-scroll-arrow-bottom');
 const modalOverlaySignUp = document.querySelector('.modal-overlay');
+const footer = document.querySelector('footer');
 
 const arrowScrollDown = arrowScrollDowns[0];
 
@@ -138,6 +139,7 @@ function moveTransform(direction) {
 
     pageScrollArrowDown.style.display = 'flex';
     modalOverlaySignUp.style.display = 'none';
+    footer.style.display = 'none';
   } else if (direction === 'down' && !transformYActive) {
     transformYActive = true;
     document
@@ -148,6 +150,7 @@ function moveTransform(direction) {
 
     setTimeout(() => {
       modalOverlaySignUp.style.display = 'block';
+      footer.style.display = 'block';
     }, 1100);
   }
 }
