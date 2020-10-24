@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "gulp development",
-    "build": "gulp build"
+    "dev": "gulp"
   },
   "author": "Alexandre Monteiro <alexandre.monteiro.bec@gmail.com>",
   "license": "MIT",

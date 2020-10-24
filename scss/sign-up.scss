@@ -25,8 +25,8 @@
       opacity: 1;
       z-index: 1;
       
-      position: absolute;        
-      top: 1600px;
+      position: absolute;
+      top: 61%;
       
       pointer-events: auto;
       
@@ -49,7 +49,7 @@
 
     .container-sign-up {
       position: absolute;        
-      top: 1650px;
+      top: 64%;
 
       display: flex;
       justify-content: center;
@@ -110,7 +110,7 @@
         }
 
         .container-form {
-          min-height: 400px;
+          min-height: 370px;
 
           padding: 20px 10px 14px;
 
@@ -121,10 +121,6 @@
             width: 45px;
 
             margin: 5px auto 8px;
-
-            @media (max-height: 800px) {
-              display: none;
-            }
 
             svg {
               path {

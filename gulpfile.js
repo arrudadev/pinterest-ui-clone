@@ -8,8 +8,7 @@ const sassFolderPath = './scss';
 const sassFilesPath = './scss/*.scss';
 const sassBundleFileName = 'bundle.scss';
 
-const cssFolderDevelopment = './css';
-const cssFolderProduction = './build/css';
+const cssFolder = './css';
 
 const sassOptions = {
   errLogToConsole: true,
@@ -28,28 +27,17 @@ gulp.task('concat-sass', function () {
       'scss/grid.scss',
       'scss/page-scroll-arrows.scss',
       'scss/sign-up.scss',
-      'scss/footer.scss',
     ], { base: __dirname }))
     .pipe(concat(sassBundleFileName))
     .pipe(gulp.dest(sassFolderPath));
 });
 
-gulp.task('compile-sass-development', function () {
+gulp.task('compile-sass', function () {
   return gulp      
     .src(`${sassFolderPath}/${sassBundleFileName}`)
     .pipe(sass(sassOptions).on('error', sass.logError))    
     .pipe(autoprefixer())
-    .pipe(gulp.dest(cssFolderDevelopment));
+    .pipe(gulp.dest(cssFolder));
 });
 
-gulp.task('compile-sass-production', function () {
-  return gulp
-    .src(`${sassFolderPath}/${sassBundleFileName}`)
-    .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
-    .pipe(autoprefixer())
-    .pipe(gulp.dest(cssFolderProduction));
-});
-
-gulp.task('development', gulp.series('concat-sass', 'compile-sass-development'));
-
-gulp.task('build', gulp.series('concat-sass', 'compile-sass-production'));
+gulp.task('default', gulp.series('concat-sass', 'compile-sass'));
